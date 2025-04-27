@@ -36,8 +36,8 @@ internal class PublishModel
     [JsonPropertyName("previousStableVersion")]
     public string PreviousPreviewVersion { get; set; }
 
-    [JsonPropertyName("enableLoadExtension")]
-    public bool EnableLoadExtension { get; set; }
+    [JsonPropertyName("enableLoadExtensions")]
+    public bool EnableLoadExtensions { get; set; }
 
     [JsonPropertyName("hashes")]
     public Dictionary<string, string> Hashes { get; set; }

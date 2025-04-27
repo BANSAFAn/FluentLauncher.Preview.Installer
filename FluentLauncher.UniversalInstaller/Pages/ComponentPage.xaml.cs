@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using FluentLauncher.UniversalInstaller.Utils;
 using System.Windows.Controls;
 
 namespace FluentLauncher.UniversalInstaller.Pages;
@@ -39,4 +40,6 @@ partial class ComponentPageVM : ObservableRecipient, IBaseStepViewModel
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(RootChecked))]
     public partial bool DotNet9Checked { get; set; }
+
+    public bool SupportConnectX => SystemHelper.GetArchitecture() != "arm64";
 }

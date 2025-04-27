@@ -2,7 +2,6 @@
 using FluentLauncher.UniversalInstaller.Utils;
 using System;
 using System.Diagnostics;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -29,38 +28,19 @@ partial class FinishPageVM : ObservableObject, IBaseStepViewModel
 
     public bool CanBack => false;
 
-    public string PackageName { get; set; }
+    public string PackageFamilyName { get; set; }
 
     [ObservableProperty]
     public partial bool OpenLauncher { get; set; } = true;
 
-    public async void Finish()
+    public void Finish()
     {
         if (!OpenLauncher)
             return;
 
         try
         {
-            using var process = Process.Start(new ProcessStartInfo("powershell", $"Get-AppxPackage -Name {PackageName}")
-            {
-                RedirectStandardOutput = true,
-                UseShellExecute = false,
-                CreateNoWindow = true
-            }) ?? throw new InvalidOperationException("couldn't start powershell process");
-
-            process.WaitForExit();
-            string content = await process.StandardOutput.ReadToEndAsync();
-
-            if (string.IsNullOrEmpty(content))
-                throw new InvalidOperationException("counldn't get PackageFamilyName of installed package");
-
-            string packageFamilyName = content
-                .Split('\n')
-                .FirstOrDefault(line => line.Contains("PackageFamilyName"))?
-                .Split(':')[1]?
-                .Trim();
-
-            Process.Start("explorer.exe", $"shell:AppsFolder\\{packageFamilyName}!App");
+            Process.Start("explorer.exe", $"shell:AppsFolder\\{PackageFamilyName}!App");
         }
         catch (Exception ex)
         {

@@ -80,7 +80,7 @@ internal partial class ViewModel : ObservableRecipient, IRecipient<InstallResult
 
             Pages[4].DataContext = new FinishPageVM()
             {
-                PackageName = vm.PackageName
+                PackageFamilyName = vm.PackageFamilyName
             };
         }
         else if (pageIndex == 4)

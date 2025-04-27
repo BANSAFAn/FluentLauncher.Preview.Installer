@@ -57,7 +57,7 @@ partial class ProgressPageVM : ObservableRecipient, IBaseStepViewModel
 
     public bool DotNet9Checked { get; set; }
 
-    public string PackageName { get; set; }
+    public string PackageFamilyName { get; set; }
 
     [ObservableProperty]
     public partial string ProgressText { get; set; }
@@ -95,10 +95,13 @@ partial class ProgressPageVM : ObservableRecipient, IBaseStepViewModel
         UpdateProgress(0.0, "正在安装启动器包", true);
         await InstallLauncherPackage(fileInfo);
 
-        //if (ConnectXExtensionChecked)
-        //{
+        if (ConnectXExtensionChecked)
+        {
+            FileInfo file = await DownloadConnectXExtension();
 
-        //}
+            UpdateProgress(0.0, "正在安装 .NET 9.0 Desktop Runtime (v9.0.4) 安装包", true);
+            InstallConnectXExtension(file);
+        }
 
         if (DotNet9Checked)
         {
@@ -143,7 +146,7 @@ partial class ProgressPageVM : ObservableRecipient, IBaseStepViewModel
             {
                 PublishModel publishModel = JsonSerializer.Deserialize<PublishModel>(match.Groups[1].Value);
 
-                if (ConnectXExtensionChecked == publishModel.EnableLoadExtension)
+                if (ConnectXExtensionChecked == publishModel.EnableLoadExtensions)
                     return (publishModel, releaseModel);
             }
             catch { }
@@ -225,7 +228,7 @@ partial class ProgressPageVM : ObservableRecipient, IBaseStepViewModel
                 using var streamReader = new StreamReader(stream);
 
                 using var xmlReader = XmlReader.Create(streamReader);
-                packageName = PackageName = xmlReader.ReadToDescendant("Identity")
+                packageName = xmlReader.ReadToDescendant("Identity")
                     ? xmlReader.GetAttribute("Name")
                     : null;
             }
@@ -327,6 +330,32 @@ partial class ProgressPageVM : ObservableRecipient, IBaseStepViewModel
             }
 
             #endregion
+
+            #region Get PackageFamilyName
+
+            using (var process = Process.Start(new ProcessStartInfo("powershell", $"Get-AppxPackage -Name {packageName}")
+            {
+                RedirectStandardOutput = true,
+                UseShellExecute = false,
+                CreateNoWindow = true
+            }) ?? throw new InvalidOperationException("couldn't start powershell process"))
+            {
+                process.WaitForExit();
+                string content = await process.StandardOutput.ReadToEndAsync();
+
+                if (string.IsNullOrEmpty(content))
+                    throw new InvalidOperationException("counldn't get PackageFamilyName of installed package");
+
+                packageFamilyName = content
+                    .Split('\n')
+                    .FirstOrDefault(line => line.Contains("PackageFamilyName"))?
+                    .Split(':')[1]?
+                    .Trim();
+
+                PackageFamilyName = packageFamilyName;
+            }
+
+            #endregion
         }
         finally
         {
@@ -372,6 +401,34 @@ partial class ProgressPageVM : ObservableRecipient, IBaseStepViewModel
         {
             fileInfo.Delete();
         }
+    }
+
+    async Task<FileInfo> DownloadConnectXExtension()
+    {
+        const string githubApi = "https://api.github.com/repos/Xcube-Studio/FluentLauncher.Extension.ConnectX/releases/latest";
+        string releasesContent = await _httpClient.GetStringAsync(githubApi);
+        string architecture = SystemHelper.GetArchitecture();
+
+        string downloadUrl = JsonSerializer.Deserialize<ReleaseModel>(releasesContent).Assets
+            .First(a => a.Name.EndsWith($"{architecture}.zip"))
+            .DownloadUrl;
+
+        return await HttpHelper.Download(downloadUrl, $"FluentLauncher.Extension.ConnectX.{architecture}.zip", p =>
+        {
+            UpdateProgress(p, "正在下载 适用于 Fluent Launcher 的 ConnectX 扩展包", false);
+        });
+    }
+
+    void InstallConnectXExtension(FileInfo fileInfo)
+    {
+        string directory = $"C:\\Users\\{Environment.UserName}\\AppData\\Local\\Packages\\{PackageFamilyName}\\LocalState\\Extensions";
+        string extensionPath = Path.Combine(directory, "FluentLauncher.Extension.ConnectX");
+
+        if (Directory.Exists(extensionPath))
+            Directory.Delete(extensionPath, true);
+
+        Directory.CreateDirectory(extensionPath);
+        ZipFile.ExtractToDirectory(fileInfo.FullName, extensionPath);
     }
 
     void UpdateProgress(double progress, string text, bool isIndeterminate)
