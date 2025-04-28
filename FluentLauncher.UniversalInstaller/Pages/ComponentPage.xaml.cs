@@ -40,6 +40,4 @@ partial class ComponentPageVM : ObservableRecipient, IBaseStepViewModel
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(RootChecked))]
     public partial bool DotNet9Checked { get; set; }
-
-    public bool SupportConnectX => SystemHelper.GetArchitecture() != "arm64";
 }

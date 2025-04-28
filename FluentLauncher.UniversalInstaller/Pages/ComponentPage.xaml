@@ -240,8 +240,7 @@
                             <CheckBox
                                 Margin="0,2"
                                 Content="适用于 Fluent Launcher 的 ConnectX 扩展"
-                                IsChecked="{Binding ConnectXExtensionChecked, Mode=TwoWay}"
-                                IsEnabled="{Binding SupportConnectX}" />
+                                IsChecked="{Binding ConnectXExtensionChecked, Mode=TwoWay}" />
                         </TreeViewItem.Header>
                     </TreeViewItem>
                     <TreeViewItem
