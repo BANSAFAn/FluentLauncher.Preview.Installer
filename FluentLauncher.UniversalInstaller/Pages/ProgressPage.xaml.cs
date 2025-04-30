@@ -216,7 +216,7 @@ partial class ProgressPageVM : ObservableRecipient, IBaseStepViewModel
             ZipFile.ExtractToDirectory(fileInfo.FullName, directory.FullName);
 
             string packagePath = Path.Combine(directory.FullName, $"msix-{architecture}.msix");
-            string[] dependencyPackagesPath = Directory.GetFiles(directory.FullName, "dependencies");
+            string[] dependencyPackagesPath = Directory.GetFiles(Path.Combine(directory.FullName, "dependencies"));
 
             #region Parse Package
 
