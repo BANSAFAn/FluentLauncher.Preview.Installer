@@ -2,12 +2,12 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net48</TargetFramework>
+    <TargetFramework>net481</TargetFramework>
     <UseWPF>true</UseWPF>
     <RootNamespace>FluentLauncher.UniversalInstaller</RootNamespace>
     <AssemblyName>FluentLauncher.UniversalInstaller</AssemblyName>
     <LangVersion>preview</LangVersion>
-    <PlatformTarget>x64</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <ApplicationIcon>Assets\2.ico</ApplicationIcon>
   </PropertyGroup>
 

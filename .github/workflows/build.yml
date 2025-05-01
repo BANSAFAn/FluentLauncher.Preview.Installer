@@ -8,11 +8,11 @@ jobs:
     name: build
     runs-on: windows-latest
     strategy:
+        fail-fast: false
         matrix:
-          architecture: [x64, arm64]
           edition: [CommandLine, Universal]
-
-
+          architecture: [x64, arm64]
+          
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -31,10 +31,10 @@ jobs:
           PublishDir: ./publish/win-${{ matrix.architecture }}
         run: |
           cd ./FluentLauncher.${{ matrix.edition }}Installer
-          dotnet publish --configuration Release --self-contained true --runtime win-${{ matrix.architecture }} --output $PublishDir --nologo
+          dotnet publish --configuration Release --self-contained true --output $env:PublishDir -p:PlatformTarget=${{matrix.architecture}} --nologo 
 
-      - name: upload to artifacts
+      - name: Upload to Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: win-${{ matrix.architecture }}
+          name: ${{ matrix.edition }}Installer-win-${{ matrix.architecture }}
           path: "FluentLauncher.${{ matrix.edition }}Installer\\publish\\win-${{ matrix.architecture }}\\FluentLauncher.${{ matrix.edition }}Installer.exe"
