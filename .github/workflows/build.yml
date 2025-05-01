@@ -1,0 +1,40 @@
+name: Build
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run:
+    name: build
+    runs-on: windows-latest
+    strategy:
+        matrix:
+          architecture: [x64, arm64]
+          edition: [CommandLine, Universal]
+
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v2
+            
+      - name: Publish Aot
+        env:
+          RuntimeIdentifier: win-${{ matrix.architecture }}
+          PublishDir: ./publish/win-${{ matrix.architecture }}
+        run: |
+          cd ./FluentLauncher.${{ matrix.edition }}Installer
+          dotnet publish --configuration Release --self-contained true --runtime win-${{ matrix.architecture }} --output $PublishDir --nologo
+
+      - name: upload to artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: win-${{ matrix.architecture }}
+          path: "FluentLauncher.${{ matrix.edition }}Installer\\publish\\win-${{ matrix.architecture }}\\FluentLauncher.${{ matrix.edition }}Installer.exe"
