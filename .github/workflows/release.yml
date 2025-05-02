@@ -4,11 +4,11 @@ on:
   workflow_dispatch:
   
 jobs:
-  
+
   Compile:
     name: Compile
     uses: ./.github/workflows/build.yml
-  
+
   Release:
     name: Release
     needs: Compile
@@ -17,29 +17,60 @@ jobs:
       Artifacts_Path: .artifacts
 
     steps:
-      
       - name: Download Artifacts
         uses: actions/download-artifact@v4
         with:
-          merge-multiple: true
           path: ${{ env.Artifacts_Path }}
       
+      - name: Rename and Merge Artifacts
+        run: |
+          
+          $artifactsPath = "${{ env.Artifacts_Path }}"
+
+          cd $artifactsPath
+          ls -r
+          cd ..
+  
+          # 遍历 artifacts 目录，根据目录名称为文件添加架构标识
+          Get-ChildItem -Path $artifactsPath -Directory | ForEach-Object {
+            $artifactDir = $_.FullName
+            $dirName = $_.Name
+
+            if ($dirName -eq "CommandLineInstaller-win-x64") {
+              $src = Join-Path $artifactDir "FluentLauncher.CommandLineInstaller.exe"
+              $dst = Join-Path $artifactsPath "FluentLauncher.CommandLineInstaller-win-x64.exe"
+              if (Test-Path $src) { Move-Item -Path $src -Destination $dst }
+            } elseif ($dirName -eq "CommandLineInstaller-win-arm64") {
+              $src = Join-Path $artifactDir "FluentLauncher.CommandLineInstaller.exe"
+              $dst = Join-Path $artifactsPath "FluentLauncher.CommandLineInstaller-win-arm64.exe"
+              if (Test-Path $src) { Move-Item -Path $src -Destination $dst }
+            } elseif ($dirName -eq "UniversalInstaller-win-x64") {
+              $src = Join-Path $artifactDir "FluentLauncher.UniversalInstaller.exe"
+              $dst = Join-Path $artifactsPath "FluentLauncher.UniversalInstaller-win-x64.exe"
+              if (Test-Path $src) { Move-Item -Path $src -Destination $dst }
+            } elseif ($dirName -eq "UniversalInstaller-win-arm64") {
+              $src = Join-Path $artifactDir "FluentLauncher.UniversalInstaller.exe"
+              $dst = Join-Path $artifactsPath "FluentLauncher.UniversalInstaller-win-arm64.exe"
+              if (Test-Path $src) { Move-Item -Path $src -Destination $dst }
+            }
+          }
+            
       - name: Generate Tag
         run: |
-              $releases = (gh release list --repo Xcube-Studio/FluentLauncher.Preview.Installer --limit 100 | Measure-Object -Line).Lines
-              
-              $major=1
-              $minor=0
-              $patch=0
+          $releases = (gh release list --repo Xcube-Studio/FluentLauncher.Preview.Installer --limit 100 | Measure-Object -Line).Lines
+          
+          $major=1
+          $minor=0
+          $patch=0
 
-              $patch += $releases % 12
-              $minor += [math]::Floor($releases / 12)
-              $major += [math]::Floor($minor / 6)
-              $minor %= 6
+          $patch += $releases % 12
+          $minor += [math]::Floor($releases / 12)
+          $major += [math]::Floor($minor / 6)
+          $minor %= 6
 
-              $version="$major.$minor.$patch"
-              echo "Generated version: $version"
-              echo "version=$version" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+          $version="$major.$minor.$patch"
+          echo "Generated version: $version"
+          echo "version=$version" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
 
         env:
           GH_TOKEN: ${{ github.token }}
@@ -47,19 +78,19 @@ jobs:
       - name: Create Release
         uses: ncipollo/release-action@v1.12.0
         with:
-            artifacts: "${{ env.Artifacts_Path }}\\*.*"
-            allowUpdates: true
-            generateReleaseNotes: true
-            tag: "v${{ env.version }}"
-      
+          artifacts: "${{ env.Artifacts_Path }}\\*.*"
+          allowUpdates: true
+          generateReleaseNotes: true
+          tag: "v${{ env.version }}"
+
       - name: Upload Files To Oss
         uses: xcube-studio/sync2oss@v2
         with:
           repoUrl: "Xcube-Studio/FluentLauncher.Preview.Installer"
           accessKeyId: ${{ secrets.ALIYUN_ACCESSKEYID }}
-          accessKeySecret: ${{secrets.ALIYUN_ACCESSKEYSECRET}}
-          endpoint: ${{secrets.ALIYUN_OSS_ENDPOINT}}
-          bucketName: ${{secrets.ALIYUN_OSS_BUCKETNAME_1}}
+          accessKeySecret: ${{ secrets.ALIYUN_ACCESSKEYSECRET }}
+          endpoint: ${{ secrets.ALIYUN_OSS_ENDPOINT }}
+          bucketName: ${{ secrets.ALIYUN_OSS_BUCKETNAME_1 }}
           region: "cn-shanghai"
           addSymlink: True
           fromRelease: True
