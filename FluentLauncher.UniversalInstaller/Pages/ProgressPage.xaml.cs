@@ -409,7 +409,7 @@ partial class ProgressPageVM : ObservableRecipient, IBaseStepViewModel
         string releasesContent = await _httpClient.GetStringAsync(githubApi);
         string architecture = SystemHelper.GetArchitecture();
 
-        string downloadUrl = JsonSerializer.Deserialize<ReleaseModel>(releasesContent).Assets
+        string downloadUrl = "https://source.cubestructor.cc/" + JsonSerializer.Deserialize<ReleaseModel>(releasesContent).Assets
             .First(a => a.Name.EndsWith($"{architecture}.zip"))
             .DownloadUrl;
 
