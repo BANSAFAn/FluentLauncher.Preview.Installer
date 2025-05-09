@@ -71,8 +71,10 @@ public class InstallScripts
 
             static async Task CheckPowerShellCommand(string commandName)
             {
-                using var process = Process.Start(new ProcessStartInfo("powershell", $"Get-Command {commandName}"))
-                    ?? throw new InvalidOperationException("couldn't start powershell process");
+                using var process = Process.Start(new ProcessStartInfo("powershell", $"Get-Command {commandName}")
+                {
+                    CreateNoWindow = true,
+                }) ?? throw new InvalidOperationException("couldn't start powershell process");
 
                 await process.WaitForExitAsync();
 
