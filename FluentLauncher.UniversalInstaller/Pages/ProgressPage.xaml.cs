@@ -289,7 +289,7 @@ partial class ProgressPageVM : ObservableRecipient, IBaseStepViewModel
 
             foreach (string path in dependencyPackagesPath)
             {
-                using var process = Process.Start(new ProcessStartInfo("powershell", $"Add-AppxPackage -Path \"{path}\" -ForceUpdateFromAnyVersion -ForceApplicationShutdown")
+                using var process = Process.Start(new ProcessStartInfo("powershell", $"-Command \"Add-AppxPackage -Path \'{path}\' -ForceUpdateFromAnyVersion -ForceApplicationShutdown\"")
                 {
                     RedirectStandardOutput = true,
                     RedirectStandardError = true,
@@ -313,8 +313,8 @@ partial class ProgressPageVM : ObservableRecipient, IBaseStepViewModel
 
             #region Install/Update Package
 
-            string forceUpdateOption = isPackageInstalled ? " -ForceUpdateFromAnyVersion" : string.Empty;
-            using (var process = Process.Start(new ProcessStartInfo("powershell", $"Add-AppxPackage -Path \"{packagePath}\" -ForceApplicationShutdown" + forceUpdateOption)
+            string forceUpdateOption = isPackageInstalled ? "-ForceUpdateFromAnyVersion" : string.Empty;
+            using (var process = Process.Start(new ProcessStartInfo("powershell", $"-Command \"Add-AppxPackage -Path \'{packagePath}\' -ForceApplicationShutdown {forceUpdateOption}\"")
             {
                 RedirectStandardOutput = true,
                 RedirectStandardError = true,
