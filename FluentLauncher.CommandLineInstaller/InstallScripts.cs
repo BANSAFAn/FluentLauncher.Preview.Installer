@@ -8,23 +8,24 @@ namespace FluentLauncher.CommandLineInstaller;
 public class InstallScripts
 {
     public const string Certification = """
-        MIIDHDCCAgSgAwIBAgIQJ9btv5s1GrpAYNuif4HC8TANBgkqhkiG9w0BAQsFADAv
-        MS0wKwYDVQQDEyQwNTNFRkIwRS02NzA1LTRBMTEtOTRCOS05ODBDNEM5RTAwNDcw
-        HhcNMjQwNzAxMDYyNDEzWhcNMjUwNzAxMTIyNDEzWjAvMS0wKwYDVQQDEyQwNTNF
+        MIIDLjCCAhagAwIBAgIQXpBeM3gATJRP7k7Qo5VHBzANBgkqhkiG9w0BAQsFADAv
+        MS0wKwYDVQQDDCQwNTNFRkIwRS02NzA1LTRBMTEtOTRCOS05ODBDNEM5RTAwNDcw
+        HhcNMjUwNzEwMDY0ODI3WhcNMzUwNzEwMDY1ODI2WjAvMS0wKwYDVQQDDCQwNTNF
         RkIwRS02NzA1LTRBMTEtOTRCOS05ODBDNEM5RTAwNDcwggEiMA0GCSqGSIb3DQEB
-        AQUAA4IBDwAwggEKAoIBAQDU/dm+LIjWovZNGdfkkFvsGkNLrDWWLWlz6MuZC4BV
-        nedv3NyIYJxUt9WMo8BXdemQ7NqGRjtzthSGA1E8fB+UmC15lfMJZJ3L2nUIZG1d
-        dOXP1/XW/3Xo97Qzm6Orx3AfJa3jSSRuflbUSvW0l6eEHsUTMYqa31lYiebI03H+
-        eia8eVbgxzaMhmjHYEkv7gElFq5OtTIvZ4QONah/ijFeoFFTkvrFOxZtelcOqMRW
-        P7E1I0dpZGswI68wmPfCdIcgTAj60JXy4N94mP7WMvdlIJvSFRM/CIvMUOP/ITYR
-        YoWawI88rRplweQSNt6DnLy11Gz+rAboULUbKKiV3xlFAgMBAAGjNDAyMAwGA1Ud
-        EwEB/wQCMAAwIgYDVR0lAQH/BBgwFgYIKwYBBQUHAwMGCisGAQQBgjdUAwEwDQYJ
-        KoZIhvcNAQELBQADggEBADOL+F24yg9fqptdtGip4ZtlRvDfUTp3inYV2JUk3vHw
-        nMjHQmGIFAEOifcXXh6E6T/MjepdvQIRMTjnVLinAPvq8Y2sKh5SQZCxED/rBukv
-        Hmw1PElTMxrVo/fUOE5ASyZvcZ63EmeiFffYpjXkZBsT54e88BgOh2WP1D2Rczsx
-        WhyLZufOx+nwa7KaH9shACa1va8PnPlQiNx5ynxkicXyVaAcpa0wVFwl8k+0qmLX
-        RLnnzK2fbXQRfyIhKG1q1rZ6V2O8N8Xf19WiZmqVzxxm9EjVKVXMl5uG7Y/MVKOw
-        ibZ+jVh3oqn2yxqQ/zCt5e//A5dUWPzIhA0f5eGaywQ=
+        AQUAA4IBDwAwggEKAoIBAQCyBbAwrLWaFa49WwSQdjWES7/z4rxSK21HM1PtKqi4
+        WROD6CtbUVu4o+U0/mjuDJhwIAczbLs77v0QgrwPBgZjwaXYmzUdfQ04hFXMO65R
+        OZF3R8yDDFRVYdPTO9RaYEaDxfvctPp5g/+N+ucicLlFZy7ozwxoHlfex1IBmBSz
+        niMGAKceM7FM4y9+wGv49WRsj089uC0mAwOxeE2sdEzSUxt0E8YEKxsLp3kuv2t5
+        5x3JyaY/GrXlZ9tfLkIapAYyEsrIBsa2ZaVyuzioutyx3L/Wh42Yw7vtbGgHJJyo
+        2cJV0GPCiUNB5aJjE5HQhdUnKE/3u1Y6PMyP9vZDhcqFAgMBAAGjRjBEMA4GA1Ud
+        DwEB/wQEAwIHgDATBgNVHSUEDDAKBggrBgEFBQcDAzAdBgNVHQ4EFgQUwtZUvCc6
+        pvVyLSmPgrEuUsFM9dIwDQYJKoZIhvcNAQELBQADggEBAFrFRjED4UokwcG0Maps
+        v/CJsHG+KftBN/p6yXlcHTGnMSan4CMG1JgNPjQOWpGxTQV9cH/A/kqGUCc9QVwW
+        AX3GVWeGacyhhnokgA1q9qEQNXYxdequJllt2axnHnM9V6B5EW5Z7Te/eyEKHChG
+        02u1Wx906rsXbFd04jlXvtWpzIeRzHjGGeKkC9gcYmP6ze4zNReSiq/u8oduyXfb
+        /Hz65ehtHUWsiKZYDiic4XPKNp8uGQQRmNKTrKFynaOAM4p5ffe/55XwDByskmGA
+        YbMiGZumh4bltjiXFF/81J1Cg5kJokOydIxjgE9WXmZwU7+770PCaLwlPN9hZHVx
+        i+E=
         """;
 
     public static async Task InstallPackage(string packagePath, string[] dependencyPackagesPath,
