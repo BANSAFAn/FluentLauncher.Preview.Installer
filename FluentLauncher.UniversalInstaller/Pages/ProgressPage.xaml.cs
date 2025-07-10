@@ -158,7 +158,7 @@ partial class ProgressPageVM : ObservableRecipient, IBaseStepViewModel
     async Task<FileInfo> DownloadLauncherPackage(ReleaseModel releaseModel)
     {
         string architecture = SystemHelper.GetArchitecture();
-        string downloadUrl = "https://source.cubestructor.cc/" + releaseModel.Assets
+        string downloadUrl = "https://source.xcubestudio.net/" + releaseModel.Assets
             .FirstOrDefault(x => x.Name == $"updatePackage-{architecture}.zip")
             .DownloadUrl;
 
@@ -410,7 +410,7 @@ partial class ProgressPageVM : ObservableRecipient, IBaseStepViewModel
         string releasesContent = await _httpClient.GetStringAsync(githubApi);
         string architecture = SystemHelper.GetArchitecture();
 
-        string downloadUrl = "https://source.cubestructor.cc/" + JsonSerializer.Deserialize<ReleaseModel>(releasesContent).Assets
+        string downloadUrl = "https://source.xcubestudio.net/" + JsonSerializer.Deserialize<ReleaseModel>(releasesContent).Assets
             .First(a => a.Name.EndsWith($"{architecture}.zip"))
             .DownloadUrl;
 
