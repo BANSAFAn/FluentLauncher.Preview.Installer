@@ -1,11 +1,12 @@
-﻿<Window
+<Window
     x:Class="FluentLauncher.UniversalInstaller.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:FluentLauncher.UniversalInstaller"
+    xmlns:res="clr-namespace:FluentLauncher.UniversalInstaller.Properties"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Title="预览通道 Fluent Launcher 启动器 $(arch) 安装"
+    Title="{x:Static res:Resources.MainWindowTitle}"
     Width="510"
     Height="397"
     d:DataContext="{d:DesignInstance Type=local:ViewModel}"
@@ -42,7 +43,7 @@
                         Grid.Column="2"
                         Width="72"
                         Command="{Binding BackCommand}"
-                        Content="上一步"
+                        Content="{x:Static res:Resources.Back}"
                         IsEnabled="{Binding CurrentFrameDataContext.CanBack, Mode=OneWay}" />
                     <Button
                         Grid.Column="2"
@@ -70,7 +71,7 @@
                     Margin="24,0,0,0"
                     Command="{Binding CancelCommand}"
                     CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
-                    Content="取消"
+                    Content="{x:Static res:Resources.Cancel}"
                     IsEnabled="{Binding CancelButtonEnable, Mode=OneWay}" />
             </Grid>
         </Border>

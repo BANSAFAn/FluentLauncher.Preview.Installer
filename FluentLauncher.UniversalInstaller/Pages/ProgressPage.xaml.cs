@@ -131,7 +131,6 @@ partial class ProgressPageVM : ObservableRecipient, IBaseStepViewModel
         string releasesContent = await _httpClient.GetStringAsync(githubApi);
         string pattern = @"(?<=``` json)([\s\S]+?)(?=```)";
         var releases = JsonSerializer.Deserialize<ReleaseModel[]>(releasesContent)!
-            .Where(releaseModel => releaseModel.TagName.Contains("pre-release") && releaseModel.IsPreRelease)
             .OrderByDescending(releaseModel => DateTime.Parse(releaseModel.PublishedAt))
             .ToArray();
 

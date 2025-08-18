@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="WelcomeTitle" xml:space="preserve">
+    <value>欢迎使用 预览版 Fluent Launcher 启动器 $(arch) 安装向导</value>
+  </data>
+  <data name="FinishTitle" xml:space="preserve">
+    <value>完成 预览版 Fluent Launcher 启动器 $(arch) 安装向导</value>
+  </data>
+  <data name="FinishInstalled" xml:space="preserve">
+    <value>Fluent Launcher 启动器已成功安装</value>
+  </data>
+  <data name="CustomInstall" xml:space="preserve">
+    <value>自定义安装</value>
+  </data>
+  <data name="SelectComponents" xml:space="preserve">
+    <value>勾选你想要安装的功能</value>
+  </data>
+  <data name="Components" xml:space="preserve">
+    <value>组件</value>
+  </data>
+  <data name="LauncherBody" xml:space="preserve">
+    <value>Fluent Launcher (Preview) 启动器本体</value>
+  </data>
+  <data name="ConnectXExtension" xml:space="preserve">
+    <value>适用于 Fluent Launcher 的 ConnectX 扩展</value>
+  </data>
+  <data name="DotNetRuntime" xml:space="preserve">
+    <value>.NET 桌面运行时 9.0.4</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>位置：</value>
+  </data>
+  <data name="ChangeLocation" xml:space="preserve">
+    <value>我应该如何更改安装位置</value>
+  </data>
+  <data name="LicenseTitle" xml:space="preserve">
+    <value>最终用户协议许可</value>
+  </data>
+  <data name="ReadLicense" xml:space="preserve">
+    <value>请仔细阅读下面的协议许可</value>
+  </data>
+  <data name="AcceptLicense" xml:space="preserve">
+    <value>我接受许可协议中的条款</value>
+  </data>
+  <data name="ProgressTitle" xml:space="preserve">
+    <value>正在安装 Fluent Launcher (Preview) 启动器及其他勾选组件</value>
+  </data>
+  <data name="WaitInstall" xml:space="preserve">
+    <value>请等待安装向导安装功能</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>状态：</value>
+  </data>
+  <data name="InstallError" xml:space="preserve">
+    <value>安装过程中发生错误</value>
+  </data>
+  <data name="MainWindowTitle" xml:space="preserve">
+    <value>预览版 Fluent Launcher 启动器 $(arch) 安装</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>上一步</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="CannotExit" xml:space="preserve">
+    <value>安装过程中不能退出</value>
+  </data>
+  <data name="ConfirmExit" xml:space="preserve">
+    <value>你确定要退出 预览版 Fluent Launcher ({SystemHelper.GetArchitecture()}) 安装向导吗？</value>
+  </data>
+  <data name="RetrievingInfo" xml:space="preserve">
+    <value>正在检索安装所需信息</value>
+  </data>
+  <data name="DownloadingLauncher" xml:space="preserve">
+    <value>正在下载启动器安装包</value>
+  </data>
+  <data name="ImportingCertificate" xml:space="preserve">
+    <value>正在导入启动器证书</value>
+  </data>
+  <data name="InstallingLauncher" xml:space="preserve">
+    <value>正在安装启动器包</value>
+  </data>
+  <data name="InstallingDotNet" xml:space="preserve">
+    <value>正在安装 .NET 9.0 Desktop Runtime (v9.0.4) 安装包</value>
+  </data>
+  <data name="AllComponentsInstalled" xml:space="preserve">
+    <value>所有组件安装完成</value>
+  </data>
+  <data name="NoMatchingVersion" xml:space="preserve">
+    <value>没有找到符合条件的版本</value>
+  </data>
+  <data name="AdminSuffix" xml:space="preserve">
+    <value> (管理员)</value>
+  </data>
+  <data name="AgreeAndContinue" xml:space="preserve">
+    <value>同意并继续</value>
+  </data>
+  <data name="Install" xml:space="preserve">
+    <value>安装</value>
+  </data>
+  <data name="Finish" xml:space="preserve">
+    <value>完成</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>下一步</value>
+  </data>
+</root>

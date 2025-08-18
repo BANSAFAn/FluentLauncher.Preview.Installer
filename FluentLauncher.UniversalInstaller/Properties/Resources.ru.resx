@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="WelcomeTitle" xml:space="preserve">
+    <value>Добро пожаловать в мастер установки предварительной версии Fluent Launcher $(arch)</value>
+  </data>
+  <data name="FinishTitle" xml:space="preserve">
+    <value>Завершение мастера установки предварительной версии Fluent Launcher $(arch)</value>
+  </data>
+  <data name="FinishInstalled" xml:space="preserve">
+    <value>Fluent Launcher успешно установлен</value>
+  </data>
+  <data name="CustomInstall" xml:space="preserve">
+    <value>Пользовательская установка</value>
+  </data>
+  <data name="SelectComponents" xml:space="preserve">
+    <value>Выберите функции, которые вы хотите установить</value>
+  </data>
+  <data name="Components" xml:space="preserve">
+    <value>Компоненты</value>
+  </data>
+  <data name="LauncherBody" xml:space="preserve">
+    <value>Основное тело Fluent Launcher (Preview)</value>
+  </data>
+  <data name="ConnectXExtension" xml:space="preserve">
+    <value>Расширение ConnectX для Fluent Launcher</value>
+  </data>
+  <data name="DotNetRuntime" xml:space="preserve">
+    <value>.NET Desktop Runtime 9.0.4</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Расположение:</value>
+  </data>
+  <data name="ChangeLocation" xml:space="preserve">
+    <value>Как изменить место установки</value>
+  </data>
+  <data name="LicenseTitle" xml:space="preserve">
+    <value>Лицензионное соглашение конечного пользователя</value>
+  </data>
+  <data name="ReadLicense" xml:space="preserve">
+    <value>Пожалуйста, внимательно прочитайте следующее лицензионное соглашение</value>
+  </data>
+  <data name="AcceptLicense" xml:space="preserve">
+    <value>Я принимаю условия лицензионного соглашения</value>
+  </data>
+  <data name="ProgressTitle" xml:space="preserve">
+    <value>Установка Fluent Launcher (Preview) и других выбранных компонентов</value>
+  </data>
+  <data name="WaitInstall" xml:space="preserve">
+    <value>Пожалуйста, подождите, пока мастер установки установит функции</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Статус:</value>
+  </data>
+  <data name="InstallError" xml:space="preserve">
+    <value>Во время установки произошла ошибка</value>
+  </data>
+  <data name="MainWindowTitle" xml:space="preserve">
+    <value>Установка предварительной версии Fluent Launcher $(arch)</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Назад</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="CannotExit" xml:space="preserve">
+    <value>Нельзя выйти во время установки</value>
+  </data>
+  <data name="ConfirmExit" xml:space="preserve">
+    <value>Вы уверены, что хотите выйти из мастера установки предварительной версии Fluent Launcher ({SystemHelper.GetArchitecture()})?</value>
+  </data>
+  <data name="RetrievingInfo" xml:space="preserve">
+    <value>Получение необходимой информации для установки</value>
+  </data>
+  <data name="DownloadingLauncher" xml:space="preserve">
+    <value>Загрузка пакета установки лаунчера</value>
+  </data>
+  <data name="ImportingCertificate" xml:space="preserve">
+    <value>Импорт сертификата лаунчера</value>
+  </data>
+  <data name="InstallingLauncher" xml:space="preserve">
+    <value>Установка пакета лаунчера</value>
+  </data>
+  <data name="InstallingDotNet" xml:space="preserve">
+    <value>Установка .NET 9.0 Desktop Runtime (v9.0.4)</value>
+  </data>
+  <data name="AllComponentsInstalled" xml:space="preserve">
+    <value>Все компоненты установлены</value>
+  </data>
+  <data name="NoMatchingVersion" xml:space="preserve">
+    <value>Не найдена подходящая версия</value>
+  </data>
+</root>

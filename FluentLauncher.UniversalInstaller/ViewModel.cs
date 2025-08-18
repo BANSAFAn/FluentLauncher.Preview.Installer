@@ -1,4 +1,4 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using CommunityToolkit.Mvvm.Messaging.Messages;
@@ -7,6 +7,7 @@ using FluentLauncher.UniversalInstaller.Utils;
 using System;
 using System.Windows;
 using System.Windows.Controls;
+using FluentLauncher.UniversalInstaller.Properties;
 
 namespace FluentLauncher.UniversalInstaller;
 
@@ -33,18 +34,18 @@ internal partial class ViewModel : ObservableRecipient, IRecipient<InstallResult
 
     public string NextButtonText => pageIndex switch
     {
-        1 => "同意并继续",
-        2 => "安装",
-        4 => "完成",
-        _ => "下一步"
+        1 => Resources.AgreeAndContinue,
+        2 => Resources.Install,
+        4 => Resources.Finish,
+        _ => Resources.Next
     };
 
     [RelayCommand]
     void Cancel(Window window)
     {
         MessageBoxResult result = MessageBox.Show(
-            "你确定要退出 预览版 Fluent Launcher (x64) 安装向导吗？",
-            "预览通道 Fluent Launcher (x64) 安装",
+            Resources.ConfirmExit.Replace("$(arch)", $"({SystemHelper.GetArchitecture()})",
+            Resources.MainWindowTitle.Replace("$(arch)", $"({SystemHelper.GetArchitecture()})",
             MessageBoxButton.YesNo,
             MessageBoxImage.Warning);
 

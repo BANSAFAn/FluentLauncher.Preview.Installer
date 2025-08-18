@@ -3,6 +3,7 @@ using FluentLauncher.UniversalInstaller.Utils;
 using System.CommandLine;
 using System.Windows;
 using System.Windows.Controls;
+using FluentLauncher.UniversalInstaller.Properties;
 
 namespace FluentLauncher.UniversalInstaller;
 
@@ -26,10 +27,9 @@ public partial class MainWindow : Window
 
         this.UacImage.Source = UacIcon.GetUACIcon();
 
+        this.Title = Resources.MainWindowTitle.Replace("$(arch)", $"({SystemHelper.GetArchitecture()})");
         if (UacHelper.IsRunningAsAdministrator())
-            this.Title += " (管理员)";
-
-        this.Title = this.Title.Replace("$(arch)", $"({SystemHelper.GetArchitecture()})");
+            this.Title += Resources.AdminSuffix;
     }
 
     private void Window_Unloaded(object sender, RoutedEventArgs e) => VM.IsActive = false;
@@ -57,16 +57,16 @@ public partial class MainWindow : Window
             e.Cancel = true;
 
             MessageBox.Show(
-                $"安装过程中不能退出",
-                $"预览通道 Fluent Launcher ({SystemHelper.GetArchitecture()}) 安装",
+                Resources.CannotExit,
+                this.Title,
                 MessageBoxButton.OK,
                 MessageBoxImage.Warning);
             return;
         }
 
         MessageBoxResult result = MessageBox.Show(
-            $"你确定要退出 预览版 Fluent Launcher ({SystemHelper.GetArchitecture()}) 安装向导吗？",
-            $"预览通道 Fluent Launcher ({SystemHelper.GetArchitecture()}) 安装", 
+            Resources.ConfirmExit.Replace("$(arch)", $"({SystemHelper.GetArchitecture()})",
+            this.Title, 
             MessageBoxButton.YesNo, 
             MessageBoxImage.Warning);
 
