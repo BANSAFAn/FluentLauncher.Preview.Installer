@@ -44,8 +44,8 @@ internal partial class ViewModel : ObservableRecipient, IRecipient<InstallResult
     void Cancel(Window window)
     {
         MessageBoxResult result = MessageBox.Show(
-            Resources.ConfirmExit.Replace("$(arch)", $"({SystemHelper.GetArchitecture()})",
-            Resources.MainWindowTitle.Replace("$(arch)", $"({SystemHelper.GetArchitecture()})",
+            Resources.ConfirmExit.Replace("$(arch)", $"({SystemHelper.GetArchitecture()})"),
+            Resources.MainWindowTitle.Replace("$(arch)", $"({SystemHelper.GetArchitecture()})"),
             MessageBoxButton.YesNo,
             MessageBoxImage.Warning);
 

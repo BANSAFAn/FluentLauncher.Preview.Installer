@@ -1,4 +1,4 @@
-﻿using FluentLauncher.UniversalInstaller.Pages;
+using FluentLauncher.UniversalInstaller.Pages;
 using FluentLauncher.UniversalInstaller.Utils;
 using System.CommandLine;
 using System.Windows;
@@ -65,7 +65,7 @@ public partial class MainWindow : Window
         }
 
         MessageBoxResult result = MessageBox.Show(
-            Resources.ConfirmExit.Replace("$(arch)", $"({SystemHelper.GetArchitecture()})",
+            Resources.ConfirmExit.Replace("$(arch)", $"({SystemHelper.GetArchitecture()})")",
             this.Title, 
             MessageBoxButton.YesNo, 
             MessageBoxImage.Warning);
