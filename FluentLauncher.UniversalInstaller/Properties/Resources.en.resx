@@ -148,4 +148,37 @@
   <data name="NoMatchingVersion" xml:space="preserve">
     <value>No matching version found</value>
   </data>
+  <data name="WelcomeDescription" xml:space="preserve">
+    <value>This installation wizard will install the FluentLauncher launcher (Preview) and its dependencies and affiliated components to your computer. Click Next to continue or Cancel to exit the installation wizard.</value>
+  </data>
+  <data name="ComponentInstruction" xml:space="preserve">
+    <value>Click the checkboxes in the tree below to change the features to install</value>
+  </data>
+  <data name="LauncherDescription" xml:space="preserve">
+    <value>A Minecraft Java Edition launcher developed based on .NET 9 and WinUI3 technology, a Minecraft launcher designed specifically for Windows 11, providing a concise and smooth visual experience</value>
+  </data>
+  <data name="ConnectXDescription" xml:space="preserve">
+    <value>A plugin developed based on ConnectX for Fluent Launcher, providing a user-friendly UI interface for convenient Minecraft remote multiplayer</value>
+  </data>
+  <data name="DotNetDescription" xml:space="preserve">
+    <value>The .NET Desktop Runtime enables you to run existing Windows desktop applications.</value>
+  </data>
+  <data name="FinishDescription" xml:space="preserve">
+    <value>Click the Finish button to exit the wizard</value>
+  </data>
+  <data name="OpenLauncher" xml:space="preserve">
+    <value>Open Fluent Launcher</value>
+  </data>
+  <data name="FailedToLaunch" xml:space="preserve">
+    <value>Failed to launch application: {0}</value>
+  </data>
+  <data name="DownloadingLauncher" xml:space="preserve">
+    <value>Downloading launcher installation package</value>
+  </data>
+  <data name="DownloadingDotNet" xml:space="preserve">
+    <value>Downloading .NET 9.0 Desktop Runtime (v9.0.4) installation package</value>
+  </data>
+  <data name="DownloadingConnectX" xml:space="preserve">
+    <value>Downloading ConnectX extension for Fluent Launcher</value>
+  </data>
 </root>

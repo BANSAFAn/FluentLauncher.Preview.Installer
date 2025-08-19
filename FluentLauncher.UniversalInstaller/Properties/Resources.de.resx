@@ -148,4 +148,37 @@
   <data name="NoMatchingVersion" xml:space="preserve">
     <value>Keine passende Version gefunden</value>
   </data>
+  <data name="WelcomeDescription" xml:space="preserve">
+    <value>Dieser Installationsassistent installiert den FluentLauncher Launcher (Preview) und seine Abhängigkeiten und zugehörigen Komponenten auf Ihrem Computer. Klicken Sie auf Weiter, um fortzufahren, oder auf Abbrechen, um den Installationsassistenten zu beenden.</value>
+  </data>
+  <data name="ComponentInstruction" xml:space="preserve">
+    <value>Klicken Sie auf die Kontrollkästchen im Baum unten, um die zu installierenden Funktionen zu ändern</value>
+  </data>
+  <data name="LauncherDescription" xml:space="preserve">
+    <value>Ein Minecraft Java Edition Launcher, der auf .NET 9 und WinUI3-Technologie basiert, ein Minecraft-Launcher, der speziell für Windows 11 entwickelt wurde und ein prägnantes und reibungsloses visuelles Erlebnis bietet</value>
+  </data>
+  <data name="ConnectXDescription" xml:space="preserve">
+    <value>Ein Plugin, das auf ConnectX basiert und für Fluent Launcher entwickelt wurde, das eine benutzerfreundliche UI-Oberfläche für bequemes Minecraft-Remote-Multiplayer bietet</value>
+  </data>
+  <data name="DotNetDescription" xml:space="preserve">
+    <value>Die .NET Desktop Runtime ermöglicht es Ihnen, bestehende Windows-Desktopanwendungen auszuführen.</value>
+  </data>
+  <data name="FinishDescription" xml:space="preserve">
+    <value>Klicken Sie auf die Schaltfläche Fertig stellen, um den Assistenten zu beenden</value>
+  </data>
+  <data name="OpenLauncher" xml:space="preserve">
+    <value>Fluent Launcher öffnen</value>
+  </data>
+  <data name="FailedToLaunch" xml:space="preserve">
+    <value>Fehler beim Starten der Anwendung: {0}</value>
+  </data>
+  <data name="DownloadingLauncher" xml:space="preserve">
+    <value>Lade Installationspaket des Launchers herunter</value>
+  </data>
+  <data name="DownloadingDotNet" xml:space="preserve">
+    <value>Lade Installationspaket der .NET 9.0 Desktop Runtime (v9.0.4) herunter</value>
+  </data>
+  <data name="DownloadingConnectX" xml:space="preserve">
+    <value>Lade ConnectX-Erweiterung für Fluent Launcher herunter</value>
+  </data>
 </root>

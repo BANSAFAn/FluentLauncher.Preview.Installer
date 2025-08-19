@@ -148,4 +148,37 @@
   <data name="NoMatchingVersion" xml:space="preserve">
     <value>Не найдена подходящая версия</value>
   </data>
+  <data name="WelcomeDescription" xml:space="preserve">
+    <value>Этот мастер установки установит лаунчер FluentLauncher (Preview) и его зависимости и связанные компоненты на ваш компьютер. Нажмите Далее, чтобы продолжить, или Отмена, чтобы выйти из мастера установки.</value>
+  </data>
+  <data name="ComponentInstruction" xml:space="preserve">
+    <value>Нажмите на флажки в дереве ниже, чтобы изменить устанавливаемые функции</value>
+  </data>
+  <data name="LauncherDescription" xml:space="preserve">
+    <value>Лаунчер для Minecraft Java Edition, разработанный на базе .NET 9 и технологии WinUI3, лаунчер Minecraft, специально разработанный для Windows 11, обеспечивающий лаконичный и плавный визуальный опыт</value>
+  </data>
+  <data name="ConnectXDescription" xml:space="preserve">
+    <value>Плагин, разработанный на базе ConnectX для Fluent Launcher, предоставляющий удобный пользовательский интерфейс для удобного удаленного многопользовательского режима в Minecraft</value>
+  </data>
+  <data name="DotNetDescription" xml:space="preserve">
+    <value>Среда выполнения .NET Desktop позволяет запускать существующие настольные приложения Windows.</value>
+  </data>
+  <data name="FinishDescription" xml:space="preserve">
+    <value>Нажмите кнопку Завершить, чтобы выйти из мастера</value>
+  </data>
+  <data name="OpenLauncher" xml:space="preserve">
+    <value>Открыть Fluent Launcher</value>
+  </data>
+  <data name="FailedToLaunch" xml:space="preserve">
+    <value>Не удалось запустить приложение: {0}</value>
+  </data>
+  <data name="DownloadingLauncher" xml:space="preserve">
+    <value>Загрузка пакета установки лаунчера</value>
+  </data>
+  <data name="DownloadingDotNet" xml:space="preserve">
+    <value>Загрузка пакета установки .NET 9.0 Desktop Runtime (v9.0.4)</value>
+  </data>
+  <data name="DownloadingConnectX" xml:space="preserve">
+    <value>Загрузка расширения ConnectX для Fluent Launcher</value>
+  </data>
 </root>

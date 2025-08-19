@@ -163,4 +163,37 @@
   <data name="Next" xml:space="preserve">
     <value>下一步</value>
   </data>
+  <data name="WelcomeDescription" xml:space="preserve">
+    <value>本安装向导将安装 FluentLauncher 启动器 (Preview) 及其依赖和附属组件到你的计算机。点击 下一步 继续或 取消 退出安装向导。</value>
+  </data>
+  <data name="ComponentInstruction" xml:space="preserve">
+    <value>点击下面树中的复选框来改变安装的功能</value>
+  </data>
+  <data name="LauncherDescription" xml:space="preserve">
+    <value>基于 .NET 9 以及 WinUI3 技术开发的 Minecraft Java 版启动器，专为 Windows 11 设计的 Minecraft 启动器，提供简洁、流畅的视觉体验</value>
+  </data>
+  <data name="ConnectXDescription" xml:space="preserve">
+    <value>基于 ConnectX 开发的适用于 Fluent Launcher 的插件，提供用户友好的 UI 界面以便方便进行 Minecraft 远程联机</value>
+  </data>
+  <data name="DotNetDescription" xml:space="preserve">
+    <value>.NET 桌面运行时使用户能够运行现有 Windows 桌面应用程序。</value>
+  </data>
+  <data name="FinishDescription" xml:space="preserve">
+    <value>点击 完成 按钮来退出向导</value>
+  </data>
+  <data name="OpenLauncher" xml:space="preserve">
+    <value>打开 Fluent Launcher 启动器</value>
+  </data>
+  <data name="FailedToLaunch" xml:space="preserve">
+    <value>无法启动应用程序: {0}</value>
+  </data>
+  <data name="DownloadingLauncher" xml:space="preserve">
+    <value>正在下载启动器安装包</value>
+  </data>
+  <data name="DownloadingDotNet" xml:space="preserve">
+    <value>正在下载 .NET 9.0 Desktop Runtime (v9.0.4) 安装包</value>
+  </data>
+  <data name="DownloadingConnectX" xml:space="preserve">
+    <value>正在下载 适用于 Fluent Launcher 的 ConnectX 扩展包</value>
+  </data>
 </root>

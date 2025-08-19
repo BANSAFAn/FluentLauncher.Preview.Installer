@@ -1,9 +1,10 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 using FluentLauncher.UniversalInstaller.Utils;
 using System;
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
+using FluentLauncher.UniversalInstaller.Properties;
 
 namespace FluentLauncher.UniversalInstaller.Pages;
 
@@ -44,7 +45,7 @@ partial class FinishPageVM : ObservableObject, IBaseStepViewModel
         }
         catch (Exception ex)
         {
-            MessageBox.Show($"Failed to Launch Application: {ex}");
+            MessageBox.Show(string.Format(Resources.FailedToLaunch, ex));
         }
     }
 }

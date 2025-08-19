@@ -1,10 +1,11 @@
-﻿<Page
+<Page
     x:Class="FluentLauncher.UniversalInstaller.Pages.ProgressPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:FluentLauncher.UniversalInstaller.Pages"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:res="clr-namespace:FluentLauncher.UniversalInstaller.Properties"
     d:DataContext="{d:DesignInstance Type=local:ProgressPageVM}"
     Loaded="Page_Loaded"
     Unloaded="Page_Unloaded"
@@ -21,7 +22,7 @@
             BorderBrush="Gray"
             BorderThickness="0,0,0,0.666">
             <StackPanel>
-                <TextBlock FontWeight="SemiBold" Text="正在安装 Fluent Launcher (Preview) 启动器及其他勾选组件" />
+                <TextBlock FontWeight="SemiBold" Text="{x:Static res:Resources.ProgressTitle}" />
             </StackPanel>
         </Border>
 
@@ -34,7 +35,7 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <TextBlock FontWeight="SemiBold" Text="安装过程中发生错误" />
+            <TextBlock FontWeight="SemiBold" Text="{x:Static res:Resources.InstallError}" />
 
             <TextBox
                 Grid.Row="1"
@@ -49,11 +50,11 @@
             Grid.Row="1"
             Margin="24"
             Visibility="{Binding ProgressVisibility, Mode=OneWay}">
-            <TextBlock Text="请等待安装向导安装功能" />
+            <TextBlock Text="{x:Static res:Resources.WaitInstall}" />
 
             <StackPanel Margin="0,48,0,0">
                 <TextBlock>
-                    <Run Text="状态：" />
+                    <Run Text="{x:Static res:Resources.Status}" />
                     <Run Text="     " />
                     <Run Text="{Binding ProgressText, Mode=OneWay}" />
                 </TextBlock>

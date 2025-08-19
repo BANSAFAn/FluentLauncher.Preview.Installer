@@ -148,4 +148,37 @@
   <data name="NoMatchingVersion" xml:space="preserve">
     <value>Не знайдено відповідної версії</value>
   </data>
-</root>
+  <data name="WelcomeDescription" xml:space="preserve">
+    <value>Цей майстер встановлення встановить лаунчер FluentLauncher (Preview) та його залежності та пов'язані компоненти на ваш комп'ютер. Натисніть Далі, щоб продовжити, або Скасувати, щоб вийти з майстра встановлення.</value>
+  </data>
+  <data name="ComponentInstruction" xml:space="preserve">
+    <value>Натисніть на прапорці в дереві нижче, щоб змінити функції для встановлення</value>
+  </data>
+  <data name="LauncherDescription" xml:space="preserve">
+    <value>Лаунчер для Minecraft Java Edition, розроблений на базі .NET 9 та технології WinUI3, лаунчер Minecraft, спеціально розроблений для Windows 11, що забезпечує лаконічний та плавний візуальний досвід</value>
+  </data>
+  <data name="ConnectXDescription" xml:space="preserve">
+    <value>Плагін, розроблений на базі ConnectX для Fluent Launcher, що надає зручний користувацький інтерфейс для зручного віддаленого мультиплеєра в Minecraft</value>
+  </data>
+  <data name="DotNetDescription" xml:space="preserve">
+    <value>Середовище виконання .NET Desktop дозволяє запускати існуючі настільні програми Windows.</value>
+  </data>
+  <data name="FinishDescription" xml:space="preserve">
+    <value>Натисніть кнопку Завершити, щоб вийти з майстра</value>
+  </data>
+  <data name="OpenLauncher" xml:space="preserve">
+    <value>Відкрити Fluent Launcher</value>
+  </data>
+  <data name="FailedToLaunch" xml:space="preserve">
+    <value>Не вдалося запустити програму: {0}</value>
+   </data>
+   <data name="DownloadingLauncher" xml:space="preserve">
+     <value>Завантаження пакету встановлення лаунчера</value>
+   </data>
+   <data name="DownloadingDotNet" xml:space="preserve">
+     <value>Завантаження пакету встановлення .NET 9.0 Desktop Runtime (v9.0.4)</value>
+   </data>
+   <data name="DownloadingConnectX" xml:space="preserve">
+     <value>Завантаження розширення ConnectX для Fluent Launcher</value>
+   </data>
+  </root>

@@ -1,9 +1,10 @@
-﻿<Page
+<Page
     x:Class="FluentLauncher.UniversalInstaller.Pages.LicensePage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:FluentLauncher.UniversalInstaller.Pages"
+    xmlns:res="clr-namespace:FluentLauncher.UniversalInstaller.Properties"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DataContext="{d:DesignInstance Type=local:LicensePageVM}"
     mc:Ignorable="d">
@@ -19,8 +20,8 @@
             BorderBrush="Gray"
             BorderThickness="0,0,0,0.666">
             <StackPanel>
-                <TextBlock FontWeight="SemiBold" Text="最终用户协议许可" />
-                <TextBlock Margin="8,8,0,0" Text="请仔细阅读下面的协议许可" />
+                <TextBlock FontWeight="SemiBold" Text="{x:Static res:Resources.LicenseTitle}" />
+                <TextBlock Margin="8,8,0,0" Text="{x:Static res:Resources.ReadLicense}" />
             </StackPanel>
         </Border>
 
@@ -42,7 +43,7 @@
             <CheckBox
                 Grid.Row="1"
                 Margin="24,8,24,16"
-                Content="我接受许可协议中的条款"
+                Content="{x:Static res:Resources.AcceptLicense}"
                 IsChecked="{Binding AcceptedLicense, Mode=TwoWay}" />
         </Grid>
     </Grid>

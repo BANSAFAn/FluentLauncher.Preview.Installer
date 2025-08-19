@@ -1,4 +1,4 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Messaging;
 using FluentLauncher.UniversalInstaller.Models;
 using FluentLauncher.UniversalInstaller.Utils;
@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
+using FluentLauncher.UniversalInstaller.Properties;
 using System.Xml;
 
 namespace FluentLauncher.UniversalInstaller.Pages;
@@ -84,22 +85,22 @@ partial class ProgressPageVM : ObservableRecipient, IBaseStepViewModel
     {
         this.Messenger.Send(new StartInstallMessage());
 
-        UpdateProgress(0.0, "正在检索安装所需信息", true);
+        UpdateProgress(0.0, Resources.RetrievingInfo, true);
         (PublishModel publishModel, ReleaseModel releaseModel) = await GetLauncherPackageInformation();
 
         FileInfo fileInfo = await DownloadLauncherPackage(releaseModel);
 
-        UpdateProgress(0.0, "正在导入启动器证书", true);
+        UpdateProgress(0.0, Resources.ImportingCertificate, true);
         ImportLauncherPackageCertification();
 
-        UpdateProgress(0.0, "正在安装启动器包", true);
+        UpdateProgress(0.0, Resources.InstallingLauncher, true);
         await InstallLauncherPackage(fileInfo);
 
         if (ConnectXExtensionChecked)
         {
             FileInfo file = await DownloadConnectXExtension();
 
-            UpdateProgress(0.0, "正在安装 .NET 9.0 Desktop Runtime (v9.0.4) 安装包", true);
+            UpdateProgress(0.0, Resources.InstallingDotNet, true);
             InstallConnectXExtension(file);
         }
 
@@ -107,11 +108,11 @@ partial class ProgressPageVM : ObservableRecipient, IBaseStepViewModel
         {
             FileInfo file = await DownloadDotNet9Package();
 
-            UpdateProgress(0.0, "正在安装 .NET 9.0 Desktop Runtime (v9.0.4) 安装包", true);
+            UpdateProgress(0.0, Resources.InstallingDotNet, true);
             await InstallDotNet9Package(file);
         }
 
-        UpdateProgress(100, "所有组件安装完成", false);
+        UpdateProgress(100, Resources.AllComponentsInstalled, false);
     }).ContinueWith(task => 
     {
         dispatcher.Invoke(() => Failed = task.IsFaulted);
@@ -151,7 +152,7 @@ partial class ProgressPageVM : ObservableRecipient, IBaseStepViewModel
             catch { }
         }
 
-        throw new Exception($"没有找到符合条件的版本");
+        throw new Exception(Resources.NoMatchingVersion);
     }
 
     async Task<FileInfo> DownloadLauncherPackage(ReleaseModel releaseModel)
@@ -163,7 +164,7 @@ partial class ProgressPageVM : ObservableRecipient, IBaseStepViewModel
 
         return await HttpHelper.Download(downloadUrl, $"updatePackage-{architecture}.zip", p =>
         {
-            UpdateProgress(p, "正在下载启动器安装包", false);
+            UpdateProgress(p, Resources.DownloadingLauncher, false);
         });
     }
 
@@ -370,7 +371,7 @@ partial class ProgressPageVM : ObservableRecipient, IBaseStepViewModel
 
         return await HttpHelper.Download(downloadUrl, $"updatePackage-{architecture}.zip", p =>
         {
-            UpdateProgress(p, "正在下载 .NET 9.0 Desktop Runtime (v9.0.4) 安装包", false);
+            UpdateProgress(p, Resources.DownloadingDotNet, false);
         });
     }
 
@@ -415,7 +416,7 @@ partial class ProgressPageVM : ObservableRecipient, IBaseStepViewModel
 
         return await HttpHelper.Download(downloadUrl, $"FluentLauncher.Extension.ConnectX.{architecture}.zip", p =>
         {
-            UpdateProgress(p, "正在下载 适用于 Fluent Launcher 的 ConnectX 扩展包", false);
+            UpdateProgress(p, Resources.DownloadingConnectX, false);
         });
     }
 
